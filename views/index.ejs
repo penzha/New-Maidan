@@ -1,0 +1,98 @@
+<% include head %>
+
+<script src="/javascripts/Chart.js"></script>
+<script src="/javascripts/bootstrap.min.js"></script>
+<script src="/javascripts/jquery-1.11.3.min.js"></script>
+
+
+<div class="list-group">
+  <a href="#" class="list-group-item list-group-item-success">
+    <span class="badge"> 14</span>
+    Charly
+  </a>
+  <a href="#" class="list-group-item list-group-item-success">
+    <span class="badge"> 24</span>
+    David
+  </a>
+  <a href="#" class="list-group-item list-group-item-success">
+    <span class="badge"> 60</span>
+    Donnie
+  </a>
+  <a href="#" class="list-group-item list-group-item-success">
+    <span class="badge"> 55</span>
+    Jane
+  </a>
+  <a href="#" class="list-group-item list-group-item-success">
+    <span class="badge"> 14</span>
+    Pengfei
+  </a>
+  <a href="#" class="list-group-item list-group-item-success">
+    <span class="badge"> 12</span>
+    Radium
+  </a>
+  <a href="#" class="list-group-item list-group-item-success">
+    <span class="badge"> 48</span>
+    Ryan
+  </a>
+  
+  <!-- use < % if () { % > .... < % } % > to check whether balance and use 'list-group-item-danger' if it is negative -->
+  <a href="#" class="list-group-item list-group-item-danger">
+    <span class="badge"> -356</span>
+    Sophya
+  </a>
+  <a href="#" class="list-group-item list-group-item-danger">
+    <span class="badge"> -235</span>
+    Steven
+  </a>
+  <a href="#" class="list-group-item list-group-item-success">
+    <span class="badge"> 445</span>
+    Vincent
+  </a>
+</div>
+
+<!-- Split button -->
+<div class="btn-group">
+  <button type="button" class="btn btn-danger">Action</button>
+  <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <span class="caret"></span>
+    <span class="sr-only">Toggle Dropdown</span>
+  </button>
+  <ul class="dropdown-menu">
+    <li><a href="#">Action</a></li>
+    <li><a href="#">Another action</a></li>
+    <li><a href="#">Something else here</a></li>
+    <li role="separator" class="divider"></li>
+    <li><a href="#">Separated link</a></li>
+  </ul>
+</div>
+	
+<canvas id="canvas" height="200" width="1000"></canvas>
+<canvas width="1000" height="200" id="canvas1" style="margin-top: -50px;"></canvas>
+ 
+
+	<script type="text/javascript">
+		
+		var barChartData = {
+			labels : ["Charly","David","Donnie","Jane","Pengfei","Radium","Ryan","Sophya","Steven","Vicent"],
+			datasets : [
+				{
+					label: "My First dataset",
+					fillColor : "rgba(220,220,220,0.2)",
+					strokeColor : "rgba(220,220,220,1)",
+					pointColor : "rgba(220,220,220,1)",
+					pointStrokeColor : "#fff",
+					pointHighlightFill : "#fff",
+					pointHighlightStroke : "rgba(220,220,220,1)",
+					data : [10,20,50,-20,10,-180,30,0,7,-12]
+				}
+			]
+		}
+	window.onload = function(){
+		var ctx = document.getElementById("canvas").getContext("2d");
+		window.myLine = new Chart(ctx).Bar(barChartData, {
+			responsive: true
+		});
+	}
+	</script>
+
+<% include foot %>

@@ -1,0 +1,50 @@
+<% include head %>
+
+	<div class="jumbotron"> 
+		<div class="container">
+			<h1> Welcome to Microblog </h1>
+			<p> Microblog is a weibo system based on Node.js. </p>
+			<p>
+			  <a class="btn btn-primary btn-large" href="/login"> Login </a>
+			  <a class="btn btn-primary btn-large" href="/reg"> Register Now </a>
+			  <a class="btn btn-primary btn-large" href="#" role="button">Learn more &raquo;</a>
+			</p>
+		</div>
+	</div>
+
+<script src="/javascripts/Chart.js"></script>
+
+	
+		<div style="width:60%">
+			<div>
+				<canvas id="canvas" height="500" width="700"></canvas>
+			</div>
+		</div>
+
+
+	<script type="text/javascript">
+		
+		var barChartData = {
+			labels : ["Charly","David","Donnie","Jane","Pengfei","Radium","Ryan","Sophya","Steven","Vicent"],
+			datasets : [
+				{
+					label: "My First dataset",
+					fillColor : "rgba(220,220,220,0.2)",
+					strokeColor : "rgba(220,220,220,1)",
+					pointColor : "rgba(220,220,220,1)",
+					pointStrokeColor : "#fff",
+					pointHighlightFill : "#fff",
+					pointHighlightStroke : "rgba(220,220,220,1)",
+					data : [10,20,50,-20,10,-180,30,0,7,-12]
+				}
+			]
+		}
+	window.onload = function(){
+		var ctx = document.getElementById("canvas").getContext("2d");
+		window.myLine = new Chart(ctx).Bar(barChartData, {
+			responsive: true
+		});
+	}
+	</script>
+
+<% include foot %>
